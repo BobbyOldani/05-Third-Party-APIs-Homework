@@ -30,10 +30,12 @@ timeDisplay.text(timeStamp);
 //
 function saveToLocal() {
     $(".text-area").each(function() {
-
         //console.log(this);
-        let textAreaContent = ($(this).val());
+        let textAreaId = parseInt($(this).attr("id"));
+        let textAreaContent = $(this).val();
+        localStorage.setItem(textAreaId, textAreaContent);
         console.log(textAreaContent);
+        
     })
     
 };
