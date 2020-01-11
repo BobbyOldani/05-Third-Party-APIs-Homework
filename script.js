@@ -15,10 +15,6 @@ timeCheck();
 getLocal();
 
 
-//This function will hold all the functions I want to run on page load.
-//function pageLoad() {
-    
-
 //Renders the current time onto the jumbotron header thing in the #currentDay id.
 function displayCurrentTime() {
 let timeStamp = moment().format("dddd, MMM Do YYYY");
@@ -30,7 +26,6 @@ timeDisplay.text(timeStamp);
 //
 function saveToLocal() {
     $(".text-area").each(function() {
-        //console.log(this);
         let textAreaId = parseInt($(this).attr("id"));
         let textAreaContent = $(this).val();
         localStorage.setItem(textAreaId, textAreaContent);
@@ -44,6 +39,12 @@ function saveToLocal() {
 //
 function getLocal() {
 
+    $(".text-area").each(function (index, value) {
+   let localStorageVal = localStorage.getItem(value.id);
+    console.log(localStorageVal);
+    $(this).text(localStorageVal);
+   
+    })
 
 };
 
@@ -54,9 +55,8 @@ function timeCheck() {
         $(".text-area").each(function() {
         
         let textAreaId = parseInt($(this).attr("id"));
-        //console.log(this);
-        //console.log(textAreaId);
-            if (currentHour === textAreaId) {
+
+        if (currentHour === textAreaId) {
             $(this).addClass("present");
 
         } else if (currentHour > textAreaId) {
@@ -70,11 +70,6 @@ function timeCheck() {
 
 };
 
-
-
-
 $(".saveBtn").on("click", saveToLocal);
-//$(window).on("load", pageLoad);
-
 
 });
