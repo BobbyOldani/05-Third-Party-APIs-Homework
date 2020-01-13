@@ -10,8 +10,8 @@ textarea {
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
-  width: 80%;
+  width: 60%;
+
 }
 
 .jumbotron {
@@ -34,7 +34,7 @@ textarea {
 .row {
   white-space: pre-wrap;
   border-top: 1px solid white;
-  height: 80px;
+
 }
 
 .hour {
